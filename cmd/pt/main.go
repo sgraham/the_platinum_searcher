@@ -53,7 +53,7 @@ func main() {
 	if len(args) == 1 {
 		if !terminal.IsTerminal(os.Stdin) {
 			opts.SearchStream = true
-			opts.NoGroup = true
+			opts.Group = false
 		}
 	}
 
@@ -77,7 +77,7 @@ func main() {
 		if !opts.ForceColor {
 			opts.EnableColor = false
 		}
-		opts.NoGroup = true
+		opts.Group = false
 	}
 
 	if opts.Context > 0 {

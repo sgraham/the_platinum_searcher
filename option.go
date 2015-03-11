@@ -5,7 +5,7 @@ type Option struct {
 	NoColor           func()   `long:"nocolor" description:"Don't print color codes in results (Disabled by default)"`
 	ForceColor        bool     // Force color.  Not user option.
 	EnableColor       bool     // Enable color. Not user option.
-	NoGroup           bool     `long:"nogroup" description:"Don't print file name at header (Disabled by default)"`
+	Group             bool     `long:"group" description:"Print file name at header"`
 	FilesWithMatches  bool     `short:"l" long:"files-with-matches" description:"Only print filenames that contain matches"`
 	VcsIgnore         []string `long:"vcs-ignore" description:"VCS ignore files" default:".gitignore" default:".hgignore" default:".ptignore"`
 	NoPtIgnore        bool     `long:"noptignore" description:"Don't use default ($Home/.ptignore) file for ignore patterns"`

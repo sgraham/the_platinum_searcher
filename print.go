@@ -5,9 +5,9 @@ import (
 	"io"
 	"os"
 
+	"github.com/shiena/ansicolor"
 	"golang.org/x/text/encoding/japanese"
 	"golang.org/x/text/transform"
-	"github.com/shiena/ansicolor"
 )
 
 var FileMatchCount, MatchCount uint
@@ -59,7 +59,7 @@ func (p *print) Start() {
 			FileMatchCount++
 			continue
 		}
-		if !p.Option.NoGroup {
+		if p.Option.Group {
 			p.printPath(arg.Path)
 			fmt.Println()
 			FileMatchCount++
@@ -76,7 +76,7 @@ func (p *print) Start() {
 				}
 				lastLineNum = v.LastLineNum()
 			}
-			if p.Option.NoGroup {
+			if !p.Option.Group {
 				p.printPath(arg.Path)
 			}
 			p.printContext(v.Befores)
@@ -85,7 +85,7 @@ func (p *print) Start() {
 			fmt.Println()
 			p.printContext(v.Afters)
 		}
-		if !p.Option.NoGroup {
+		if p.Option.Group {
 			fmt.Println()
 		}
 	}
